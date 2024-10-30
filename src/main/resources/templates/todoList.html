@@ -1,0 +1,26 @@
+<!-- src/main/resources/templates/todoList.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+<h1>Todo List</h1>
+
+<!-- Форма для добавления новой задачи -->
+<form action="/todos/create" method="post">
+    <input type="text" name="title" placeholder="New Todo" required />
+    <button type="submit">Add Todo</button>
+</form>
+
+<ul>
+    <!-- Отображение задач -->
+    <li th:each="todo : ${todos}">
+        <span th:text="${todo.title}">Todo Title</span>
+        <form th:action="'/todos/delete/' + ${todo.id}" method="post" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>

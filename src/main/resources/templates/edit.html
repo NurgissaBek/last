@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+</head>
+<body>
+<h1>Edit Student</h1>
+<form action="/students/update" method="post">
+    <input type="hidden" name="id" th:value="${student.id}">
+    <label>Name:</label>
+    <input type="text" name="name" th:value="${student.name}" required>
+    <label>Age:</label>
+    <input type="number" name="age" th:value="${student.age}" required>
+    <label>Course:</label>
+    <input type="text" name="course" th:value="${student.course}" required>
+    <button type="submit">Update Student</button>
+</form>
+</body>
+</html>
